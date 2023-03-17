@@ -5,7 +5,7 @@
  * Return: always 0
  */
 int main(void)
-{	
+{
 	char ch = 'a';
 
 	while (ch <= 'z')
@@ -13,6 +13,6 @@ int main(void)
 		putchar (ch);
 		ch++;
 	}
-	putchar ("\n")
+	putchar ('\n');
 	return (0);
 }
