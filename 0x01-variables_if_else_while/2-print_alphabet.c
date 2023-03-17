@@ -5,8 +5,9 @@
  * Return: always 0
  */
 int main(void)
-{
-	for (char ch = 'a' ; ch <= 'z' ; ++ch)
+{	
+	ch = putchar('a');
+	for (ch ; ch <= 'z' ; ++ch)
 		putchar(ch);
 	return (0);
 }
