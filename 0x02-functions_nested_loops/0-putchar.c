@@ -1,17 +1,18 @@
-#include <stdio.h>
+#include "main.h"
 /**
  * main - Entry point
  *
- * Return: always 0
+ * Return: Alway 0 (Sucess)
  */
 int main(void)
 {
-	char ch[] = "_putchar";
+	char ch[] = "_putchar\n";
+	int i = 0;
 
-	for (int i = 0 ; i <= 7 ; i++)
+	while (i <= 8)
 	{
-		putchar (ch[i]);
+		_putchar(ch[i]);
+		i++;
 	}
-	putchar ('\n');
 	return (0);
 }
