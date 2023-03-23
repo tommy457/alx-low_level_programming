@@ -1,5 +1,4 @@
 #include "main.h"
-#include "_putchar.c"
 
 /**
  * print_triangle - Print triangle of given size
