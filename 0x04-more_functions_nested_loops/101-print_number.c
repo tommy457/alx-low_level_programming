@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * print_number - Function that prints an integer
  * @n: Number to print
@@ -16,7 +17,8 @@ void print_number(int n)
 	}
 
 	if (var / 10)
+	{
 		print_number(var / 10);
-
+	}
 	_putchar((var % 10) + '0');
 }
