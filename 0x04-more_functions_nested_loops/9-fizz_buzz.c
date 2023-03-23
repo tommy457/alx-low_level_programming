@@ -1,37 +1,27 @@
 #include <stdio.h>
 
 /**
- * main - that prints the numbers from 1 to 100
+ * main - Prints the numbers from 1 to 100
  *
- * Return: Nothing
+ * Return: 0
  */
-inr main(void)
+int main(void)
 {
-	int i = 1;
+	int num = 1;
 
-	while (i <= 100)
+	while (num <= 100)
 	{
-		if (i % 3 == 0 && i % 5 == 0)
-		{
+		if (num % 3 == 0 && num % 5 == 0)
 			printf("FizzBuzz");
-		}
-		else if (i % 3 == 0)
-		{
+		else if (num % 3 == 0)
 			printf("Fizz");
-		}
-		else if (i % 5  == 0)
-		{
+		else if (num % 5 == 0)
 			printf("Buzz");
-		}
 		else
-		{
-			printf("%d", i);
-		}
-		if (i != 100)
-		{
+			printf("%d", num);
+		if (num != 100)
 			printf(" ");
-		}
-		i++;
+		num++;
 	}
 	printf("\n");
 	return (0);
