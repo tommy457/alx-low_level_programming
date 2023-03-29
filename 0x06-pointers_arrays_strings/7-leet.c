@@ -10,7 +10,7 @@
 char *leet(char *s)
 {
 	int i = 0, j;
-	char arr[] = "a4e3o0t7l7A4E3O0T7L1";
+	char arr[] = "a4e3o0t7l1A4E3O0T7L1";
 
 	while (s[i] != '\0')
 	{
