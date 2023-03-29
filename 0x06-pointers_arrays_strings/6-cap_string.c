@@ -11,7 +11,7 @@ char *cap_string(char *s)
 
 	while (*(s + i))
 	{
-		if (s[i] >= 'arr' && s[i] <= 'z')
+		if (s[i] >= 'a' && s[i] <= 'z')
 		{
 			if (i == 0)
 				s[i] -= 32;
