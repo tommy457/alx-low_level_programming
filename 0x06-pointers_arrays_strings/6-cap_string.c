@@ -1,9 +1,7 @@
 #include "main.h"
-
 /**
- * *cap_string - capitalizes all words of arr string
+ * cap_string - capitalizes all words of arr string
  * @s: The string that will be capitalized
- *
  * Return: The resulting string s.
  */
 char *cap_string(char *s)
