@@ -2,7 +2,7 @@
 #include "string.h"
 
 /**
- * *_strcat - concatenates 2 strings.
+ * *_strncat - concatenates 2 strings.
  * @src: string to be appended
  * @dest: string to be appended to
  * @n: bytes from src;
