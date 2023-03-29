@@ -1,4 +1,4 @@
-include "main.h"
+#include "main.h"
 
 /**
  * *cap_string - capitalizes all words of arr string
