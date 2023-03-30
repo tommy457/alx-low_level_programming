@@ -7,7 +7,7 @@
  * @r:store result
  * @size_r:size of stored result
  *
- * Return: 0.
+ * Return:0.
  */
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
@@ -21,7 +21,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		return (0);
 	num1 = 0;
 
-	for (i -= 1, j -= 1, k = 0; size_r ; i--, j--, k++)
+	for (i -= 1, j -= 1, k = 0; k < size_r - 1; i--, j--, k++)
 	{
 		num2 = num1;
 
