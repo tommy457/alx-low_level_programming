@@ -25,7 +25,7 @@ void print_buffer(char *b, int size)
 
 			while (j < 10)
 			{
-				if (j % 2 == 0)
+				if (j % 2 == 0 && j > 0)
 					printf(" ");
 				if (j + i > size - 1)
 					printf("  ");
