@@ -64,7 +64,7 @@ char **strtow(char *str)
 	for (j = 0; str[j] != '\0'; j++)
 	{
 		len = 0;
-		if (str[j] != ' ' && str[j - 1] == ' ')
+		if (str[j] != ' ' && (str[j - 1] == ' ' || j == 0))
 		{
 			len = _get_words_len(j, str);
 			arr[i] = malloc(sizeof(char) * (len + 2));
