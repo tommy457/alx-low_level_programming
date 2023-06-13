@@ -4,10 +4,9 @@
 /**
  * free_grid -frees a 2 dimensional grid
  * @grid: 2 dimensional grid
- *
+ * @height: intger
  * Return: Nothing
  */
-
 void free_grid(int **grid, int height)
 {
 	int i;
