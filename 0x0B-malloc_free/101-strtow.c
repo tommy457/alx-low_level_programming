@@ -75,7 +75,7 @@ char **strtow(char *str)
 				free(arr);
 				return (NULL);
 			}
-			for (k = 0; k <= len; k++)
+			for (k = 0; k < len; k++)
 			{
 				arr[i][k] = str[k + j];
 			}
