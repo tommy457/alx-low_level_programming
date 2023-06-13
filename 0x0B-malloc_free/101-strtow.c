@@ -46,7 +46,7 @@ int _get_words_len(int start, char *s)
 char **strtow(char *str)
 {
 	char **arr;
-	int i, j, k, words = 0, len;
+	unsigned int i, j, k, words = 0, len;
 
 	if (str == NULL || *str == '\0')
 		return (NULL);
