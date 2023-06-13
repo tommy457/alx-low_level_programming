@@ -13,7 +13,7 @@ int _get_words_count(char *s)
 
 	for (i = words = 0; s[i] != '\0'; i++)
 	{
-		if (s[i - 1] == ' ' && s[i] != ' ')
+		if (s[i] != ' ' && (s[i - 1] == ' ' || i == 0))
 			words += 1;
 	}
 	return (words);
