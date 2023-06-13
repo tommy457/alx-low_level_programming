@@ -13,7 +13,7 @@ int _get_words_count(char *s)
 
 	for (i = words = 0; s[i] != '\0'; i++)
 	{
-		if (s[i] != ' ' && (s[i + 1] == ' ' || s[i + 1] == '\0'))
+		if (s[i] != ' ' && s[i + 1] == ' ')
 			words += 1;
 	}
 	return (words);
@@ -46,14 +46,14 @@ int _get_words_len(int start, char *s)
 char **strtow(char *str)
 {
 	char **arr;
-	int i, j, k, words = 0, len;
+	int i, j, k, words, len;
 
 	if (str == NULL || *str == '\0')
 		return (NULL);
 
 	words = _get_words_count(str);
 
-	arr = malloc(sizeof(char *) * (words + 1));
+	arr = malloc(sizeof(char *) * words);
 
 	if (arr == NULL || words == 0)
 	{
@@ -63,19 +63,19 @@ char **strtow(char *str)
 	i = 0;
 	for (j = 0; str[j] != '\0'; j++)
 	{
-		len = 0;
 		if (str[j] != ' ' && (str[j - 1] == ' ' || j == 0))
 		{
 			len = _get_words_len(j, str);
-			arr[i] = malloc(sizeof(char) * (len + 1));
+			arr[i] = malloc(sizeof(char) * len);
 			if (arr[i] == NULL)
 			{
-				for (; arr[i]; i--)
+				for (; i > 0; i--)
 					free(arr[i]);
+				free(arr[i]);
 				free(arr);
 				return (NULL);
 			}
-			for (k = 0; k < len; k++)
+			for (k = 0; k <= len; k++)
 			{
 				arr[i][k] = str[k + j];
 			}
