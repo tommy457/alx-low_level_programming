@@ -11,7 +11,7 @@ int _get_words_count(char *s)
 {
 	int i, words;
 
-	for (i = 0; s[i]; i++)
+	for (i = words = 0; s[i] != '\0'; i++)
 	{
 		if (s[i - 1] == ' ' && s[i] != ' ')
 			words += 1;
@@ -46,14 +46,14 @@ int _get_words_len(int start, char *s)
 char **strtow(char *str)
 {
 	char **arr;
-	unsigned int i, j, k, words = 0, len;
+	int i, j, k, words = 0, len;
 
 	if (str == NULL || *str == '\0')
 		return (NULL);
 
 	words = _get_words_count(str);
 
-	arr = malloc(sizeof(char *) * words);
+	arr = malloc(sizeof(char *) * (words + 1));
 
 	if (arr == NULL || words == 0)
 	{
@@ -67,7 +67,7 @@ char **strtow(char *str)
 		if (str[j] != ' ' && (str[j - 1] == ' ' || j == 0))
 		{
 			len = _get_words_len(j, str);
-			arr[i] = malloc(sizeof(char) * len);
+			arr[i] = malloc(sizeof(char) * (len + 1));
 			if (arr[i] == NULL)
 			{
 				for (; arr[i]; i--)
