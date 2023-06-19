@@ -2,12 +2,10 @@
 #define DOG_H
 
 /**
- * struct dog - ....
- * @name: First member
- * @owner: Second member
- * @age: Third member
- *
- * Description: ...
+ * struct dog - type describing a dog.
+ * @name: name of the dog
+ * @owner: owner of the dog
+ * @age: age of the dog
  */
 struct dog
 {
@@ -15,4 +13,5 @@ struct dog
 	char *owner;
 	float age;
 };
+void init_dog(struct dog *d, char *name, float age, char *owner);
 #endif
