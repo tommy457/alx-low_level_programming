@@ -6,11 +6,11 @@
  * @str: character
  * @func: print type function
  */
-struct print_type
+typedef struct print_type
 {
 	char *str;
 	void (*func)();
-};
+} print_type;
 
 int sum_them_all(const unsigned int n, ...);
 void print_numbers(const char *separator, const unsigned int n, ...);
