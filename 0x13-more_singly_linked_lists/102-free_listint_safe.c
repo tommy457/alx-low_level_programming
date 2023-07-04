@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-size_t has_loop(const listint_t *head);
+size_t _has_loop(const listint_t *head);
 
 /**
  * free_listint_safe - Frees a listint_t list safely
@@ -16,7 +16,7 @@ size_t free_listint_safe(listint_t **h)
 	listint_t *tmp;
 	size_t n, i;
 
-	n = has_loop(*h);
+	n = _has_loop(*h);
 
 	if (n == 0)
 	{
@@ -47,12 +47,12 @@ size_t free_listint_safe(listint_t **h)
 
 
 /**
- * has_loop - Counts the number of unique n loop.
+ * _has_loop - Counts the number of unique n loop.
  * @head: pointer to linked list.
  *
  * Return: 0 or 1.
  */
-size_t has_loop(const listint_t *head)
+size_t _has_loop(const listint_t *head)
 {
 	const listint_t *slow, *fast;
 	size_t n = 1;
