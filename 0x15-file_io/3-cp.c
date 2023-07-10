@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
 
 	if (argc != 3)
 	{
-		dprintf(STDERR_FILENO, "Usage: cp %s %s\n", argv[1], argv[2]);
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 	buff = create_buff(argv[2]);
@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
 			free(buff);
 			exit(98);
 		}
-		file_to_write = write(file_to_open, buff, 1024);
+		file_to_write = write(file_to_open, buff, file_from_read);
 
 		if (file_to_open == -1 || file_to_write == -1)
 		{
