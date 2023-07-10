@@ -28,8 +28,7 @@ int main(int argc, char *argv[])
 	file_from_open = open(argv[1], O_RDONLY);
 	file_from_read = read(file_from_open, buff, 1024);
 	file_to_open = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
-	for (; file_from_read > 0;)
-	{
+	do {
 		if (file_from_open == -1 || file_from_read == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from %s\n", argv[1]);
@@ -46,7 +45,7 @@ int main(int argc, char *argv[])
 		}
 		file_from_read = read(file_from_open, buff, 1024);
 		file_to_open = open(argv[2], O_WRONLY | O_APPEND);
-	}
+	} while (file_from_read > 0);
 	free(buff);
 	close_file(file_from_open);
 	close_file(file_to_open);
