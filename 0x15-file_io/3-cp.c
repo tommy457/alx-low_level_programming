@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
 	do {
 		if (file_from_open == -1 || file_from_read == -1)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't read from %s\n", argv[1]);
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 			free(buff);
 			exit(98);
 		}
