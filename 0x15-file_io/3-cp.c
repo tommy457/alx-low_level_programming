@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <sys/stat.h>
 
-void close_file(int c);
+void close_file(int fd);
 char *create_buff(char *file);
 
 /**
