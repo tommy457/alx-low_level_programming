@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Usage: cp %s %s\n", argv[1], argv[2]);
 		exit(97);
 	}
-	buff = Create_buff(argv[2]);
+	buff = create_buff(argv[2]);
 	file_from_open = open(argv[1], O_RDONLY);
 	file_from_read = read(file_from_open, buff, 1024);
 	file_to_open = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
