@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
 	file_from_open = open(argv[1], O_RDONLY);
 	file_from_read = read(file_from_open, buff, 1024);
 	file_to_open = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
-	while (file_from_read)
+	for (; file_from_read > 0;)
 	{
 		if (file_from_open == -1 || file_from_read == -1)
 		{
