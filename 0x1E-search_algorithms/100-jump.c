@@ -21,11 +21,11 @@ int jump_search(int *array, size_t size, int value)
 
 	for (i = 0; i < size; i += jump)
 	{
-		printf("Value checked array[%lu] = [%d]\n", i, array[i]);
 		if (array[i] < value)
 		{
 			idx = i;
 			end = i + jump;
+			printf("Value checked array[%lu] = [%d]\n", i, array[i]);
 		}
 		else
 			break;
