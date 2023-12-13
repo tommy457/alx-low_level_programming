@@ -3,7 +3,7 @@
 int linear_search_(int *array, size_t start, size_t end, int value);
 /**
  * jump_search - Searches for a value in an array of integers
- * using the Linear search algorithm.
+ * using the Jump search algorithm.
  *
  * @array: pointer to the first element of the array.
  * @size: number of elements in array.
@@ -14,29 +14,27 @@ int linear_search_(int *array, size_t start, size_t end, int value);
 
 int jump_search(int *array, size_t size, int value)
 {
-	size_t idx, jump;
+	size_t idx, end, i, jump = sqrt(size);
 
-	if (!array || size < 0)
+	if (!array)
 		return (-1);
-	jump = sqrt(size);
 
-	for (idx = 0; idx < size; idx += jump)
+	for (i = 0; i < size; i += jump)
 	{
-
-		printf("Value checked array[%lu] = [%d]\n", idx, array[idx]);
-		if (array[idx] <= value && array[idx + jump] >= value)
+		printf("Value checked array[%lu] = [%d]\n", i, array[i]);
+		if (array[i] < value)
 		{
-			printf("Value found between indexes [%lu] and [%lu]\n", idx, idx + jump);
-			return (linear_search_(array, idx, idx + jump, value));
+			idx = i;
+			end = i + jump;
 		}
-		if (idx + jump > size)
-		{
-			printf("Value found between indexes [%lu] and [%lu]\n", idx, idx + jump);
-			return (linear_search_(array, idx, size - 1, value));
-		}
-
+		else
+			break;
 	}
-	return (-1);
+	printf("Value found between indexes [%lu] and [%lu]\n", idx, end);
+
+	if (end >= size)
+		end = size - 1;
+	return (linear_search_(array, idx, end, value));
 }
 
 /**
@@ -44,8 +42,8 @@ int jump_search(int *array, size_t size, int value)
  * using the Linear search algorithm.
  *
  * @array: pointer to the first element of the array.
- * @start: start index.
- * @end: stop index.
+ * @start: index where to start searching.
+ * @end: index where to stop searching.
  * @value: value to search for.
  *
  * Return: first index where value is located or - 1.
