@@ -14,7 +14,7 @@ int linear_search_(int *array, size_t start, size_t end, int value);
 
 int jump_search(int *array, size_t size, int value)
 {
-	size_t idx, end, i, jump = sqrt(size);
+	size_t idx = 0, end = size - 1, i, jump = sqrt(size);
 
 	if (!array)
 		return (-1);
