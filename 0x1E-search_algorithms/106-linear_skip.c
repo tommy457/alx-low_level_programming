@@ -22,7 +22,7 @@ skiplist_t *linear_skip(skiplist_t *list, int value)
 	{
 		if (curr->n < value)
 		{
-			printf("Value checked array[%lu] = [%d]\n",
+			printf("Value checked array [%lu] = [%d]\n",
 					curr->express->index, curr->express->n);
 			jump_ = curr;
 			curr = curr->express;
