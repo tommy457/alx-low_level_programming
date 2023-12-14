@@ -2,10 +2,10 @@
 
 skiplist_t *linear_search_(skiplist_t *list, skiplist_t *jump_, int value);
 /**
- * linear_skip - Searches for a value in an list of integers
- * using Linear search in a skip list .
+ * linear_skip - Searches for a value in an skip list of integers
+ * using the Jump search algorithm.
  *
- * @list: pointer to the first element of the array.
+ * @list: pointer to the first element of the skip list.
  * @value: value to search for.
  *
  * Return: return a pointer to the first node where value is located or NULL.
@@ -18,30 +18,42 @@ skiplist_t *linear_skip(skiplist_t *list, int value)
 	if (!list)
 		return (NULL);
 
-	for (; curr; )
+	for (; jump_->next ;)
 	{
-		if (curr->n < value)
+		jump_ = jump_->express;
+		if (!jump_)
 		{
-			printf("Value checked array [%lu] = [%d]\n",
-					curr->express->index, curr->express->n);
 			jump_ = curr;
-			curr = curr->express;
+			while (jump_->next)
+			{
+				jump_ = jump_->next;
+			}
+			break;
+		}
+		printf(
+				"Value checked at index [%lu] = [%d]\n",
+				jump_->index, jump_->n
+		      );
+		if (jump_->n < value  && jump_->next)
+		{
+			curr = jump_;
 		}
 		else
 			break;
 	}
-
-	printf("Value found between indexes [%lu] and [%lu]\n",
-			jump_->index, curr->index);
-	return (linear_search_(jump_, curr, value));
+	printf(
+			"Value found between indexes [%lu] and [%lu]\n",
+			curr->index, jump_->index
+		);
+	return (linear_search_(curr, jump_, value));
 }
 
 /**
- * linear_search_ - Searches for a value in an array of list
+ * linear_search_ - Searches for a value in an array of skip list
  * using the Linear search algorithm.
  *
- * @list: pointer to the first element of the array.
- * @jump_: node where to start searching.
+ * @list: pointer to the node where to start searching.
+ * @jump_: pointer to the node where to stop searching.
  * @value: value to search for.
  *
  * Return: return a pointer to the first node where value is located or NULL.
@@ -49,12 +61,13 @@ skiplist_t *linear_skip(skiplist_t *list, int value)
 
 skiplist_t *linear_search_(skiplist_t *list, skiplist_t *jump_, int value)
 {
+	size_t idx;
 	skiplist_t *curr = list;
 
 	if (!list)
 		return (NULL);
 
-	for (; curr->index <= jump_->index; curr = curr->next)
+	for (idx = curr->index; idx <= jump_->index; idx++, curr = curr->next)
 	{
 		printf("Value checked at index [%lu] = [%d]\n", curr->index, curr->n);
 		if (curr->n == value)
