@@ -28,7 +28,7 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 			tmp_idx++;
 		}
 		tmp_idx = 0;
-		printf("Value checked array [%lu] = [%d]\n", jump_->index, jump_->n);
+		printf("Value checked at index [%lu] = [%d]\n", jump_->index, jump_->n);
 		if (jump_->n < value && jump_->next)
 		{
 			curr = jump_;
